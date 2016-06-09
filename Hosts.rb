@@ -144,10 +144,10 @@ class Hosts
         # Configure environment variables
         if host.has_key?('variables')
           host['variables'].each do |var|
-            server.vm.provision 'shell' do |s|
-              s.inline = 'echo "\nenv[$1] = \'$2\'" >> /etc/php5/fpm/php-fpm.conf'
-              s.args = [var['key'], var['value']]
-            end
+            # server.vm.provision 'shell' do |s|
+            #   s.inline = 'echo "\nenv[$1] = \'$2\'" >> /etc/php5/fpm/php-fpm.conf'
+            #   s.args = [var['key'], var['value']]
+            # end
 
             server.vm.provision 'shell' do |s|
                 s.inline = 'echo "\n#Set Homestead environment variable\nexport $1=$2" >> /home/vagrant/.profile'
@@ -155,9 +155,10 @@ class Hosts
             end
           end
 
-          server.vm.provision 'shell' do |s|
-            s.inline = 'service php5-fpm restart'
-          end
+          # php5-fpm dependent Hosts.yaml (not acceptable)
+          # server.vm.provision 'shell' do |s|
+          #   s.inline = 'service php5-fpm restart'
+          # end
         end
 
         # Run custom provisioners
