@@ -59,10 +59,10 @@ class Hosts
 
         # Default port forwarding
         default_ports = {
-          80   => 8000,  # HTTP
-          443  => 44300, # UDP
-          3306 => 33060, # MySQL
-          5432 => 54320 # Postgres
+          # 80   => 8000,  # HTTP
+          # 443  => 44300, # UDP
+          # 3306 => 33060, # MySQL
+          # 5432 => 54320 # Postgres
         }
         # port 22 => 2222 SSH already configured by Vagrant
 
